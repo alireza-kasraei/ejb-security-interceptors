@@ -1,4 +1,4 @@
-package net.devk.ejb;
+package net.devk.common;
 
 public class SecurityInterceptor {
 

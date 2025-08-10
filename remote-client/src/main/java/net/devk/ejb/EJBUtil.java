@@ -1,5 +1,8 @@
 package net.devk.ejb;
 
+import net.devk.common.IntermediateEJBRemote;
+import net.devk.common.SecuredEJBRemote;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.util.Hashtable;

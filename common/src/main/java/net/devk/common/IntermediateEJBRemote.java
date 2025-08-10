@@ -1,11 +1,10 @@
-package net.devk.ejb;
+package net.devk.common;
 
 
 import jakarta.ejb.Remote;
 
 
 @Remote
-//@ClientInterceptors(ClientSecurityInterceptor.class)
 public interface IntermediateEJBRemote {
 
     String makeTestCalls();

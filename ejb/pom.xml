@@ -83,21 +83,85 @@
                     <artifactId>wildfly-maven-plugin</artifactId>
                     <version>${version.plugin.wildfly}</version>
                 </plugin>
+                <!--<plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>3.6.0</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                            <configuration>
+                                <filters>
+                                    <filter>
+                                        <artifact>net.devk:common</artifact>
+                                        <includes>
+                                            <include>net.devk.common</include>
+                                        </includes>
+                                    </filter>
+                                </filters>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>-->
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <artifactSet>
+                        <includes>
+                            <!-- Include only the common artifact -->
+                            <include>net.devk:common</include>
+                        </includes>
+                    </artifactSet>
+                    <!--<filters>
+                        <filter>
+                            <artifact>net.devk:common</artifact>
+                            <includes>
+                                <include>**</include>
+                            </includes>
+                        </filter>
+                    </filters>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
     <profiles>
         <profile>
             <id>provisioned-server</id>
-            <!--<activation>
+            <activation>
                 <activeByDefault>true</activeByDefault>
-            </activation>-->
+            </activation>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>org.wildfly.plugins</groupId>
                         <artifactId>wildfly-maven-plugin</artifactId>
                         <configuration>
+                            <feature-packs>
+                                <feature-pack>
+                                    <location>wildfly@maven(org.jboss.universe:community-universe)</location>
+                                </feature-pack>
+                            </feature-packs>
+                            <layers>
+                                <!-- jaxrs-server Galleon layer adds the server content required to run JAXRS applications -->
+                                <layer>core-server</layer>
+                                <layer>elytron</layer>
+                            </layers>
                             <discover-provisioning-info>
                                 <version>${version.server}</version>
                                 <!--
@@ -117,6 +181,7 @@
                                 <packaging-script>
                                     <scripts>
                                         <script>${basedir}/configure-elytron.cli</script>
+                                        <script>${basedir}/configure-system-exception.cli</script>
                                     </scripts>
                                     <!-- Expressions resolved during server execution -->
                                     <resolve-expressions>false</resolve-expressions>

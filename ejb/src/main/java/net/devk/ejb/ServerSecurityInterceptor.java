@@ -18,11 +18,9 @@ package net.devk.ejb;
 
 import jakarta.interceptor.AroundInvoke;
 import jakarta.interceptor.InvocationContext;
-import org.wildfly.security.auth.principal.NamePrincipal;
-import org.wildfly.security.auth.server.RealmIdentity;
+import net.devk.common.SecurityInterceptor;
 import org.wildfly.security.auth.server.SecurityDomain;
 import org.wildfly.security.auth.server.SecurityIdentity;
-import org.wildfly.security.authz.RoleMapper;
 import org.wildfly.security.authz.Roles;
 
 import java.security.Principal;

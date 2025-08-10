@@ -1,6 +1,7 @@
 
 package net.devk.ejb;
 
+import net.devk.common.SecurityInterceptor;
 import org.jboss.ejb.client.EJBClientInterceptor;
 import org.jboss.ejb.client.EJBClientInvocationContext;
 import org.wildfly.security.auth.server.SecurityDomain;

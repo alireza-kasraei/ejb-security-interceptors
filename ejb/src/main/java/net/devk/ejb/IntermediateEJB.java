@@ -21,6 +21,8 @@ import jakarta.annotation.security.PermitAll;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Remote;
 import jakarta.ejb.Stateless;
+import net.devk.common.IntermediateEJBRemote;
+import net.devk.common.SecuredEJBRemote;
 import org.jboss.ejb3.annotation.SecurityDomain;
 
 /**

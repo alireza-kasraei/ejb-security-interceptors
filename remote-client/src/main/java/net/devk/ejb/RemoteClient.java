@@ -2,6 +2,8 @@ package net.devk.ejb;
 
 
 import jakarta.ejb.EJBAccessException;
+import net.devk.common.IntermediateEJBRemote;
+import net.devk.common.SecuredEJBRemote;
 
 import static net.devk.ejb.EJBUtil.lookupIntermediateEJB;
 import static net.devk.ejb.EJBUtil.lookupSecuredEJB;

@@ -22,6 +22,7 @@ import jakarta.annotation.security.RolesAllowed;
 import jakarta.ejb.Remote;
 import jakarta.ejb.SessionContext;
 import jakarta.ejb.Stateless;
+import net.devk.common.SecuredEJBRemote;
 import org.jboss.ejb3.annotation.SecurityDomain;
 
 /**
