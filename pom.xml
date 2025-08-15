@@ -42,6 +42,7 @@
         <module>remote-client</module>
         <module>server-interceptors</module>
         <module>client-interceptors</module>
+        <module>ear</module>
     </modules>
 
 
