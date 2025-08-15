@@ -23,20 +23,13 @@ import jakarta.ejb.Remote;
 import jakarta.ejb.Stateless;
 import net.devk.common.IntermediateEJBRemote;
 import net.devk.common.SecuredEJBRemote;
-import org.jboss.ejb3.annotation.SecurityDomain;
 
-/**
- * An EJB for testing EJB to remote EJB calls.
- *
- * @author <a href="mailto:darran.lofthouse@jboss.com">Darran Lofthouse</a>
- */
 @Stateless
 @Remote(IntermediateEJBRemote.class)
-@SecurityDomain("quickstart-domain")
 @PermitAll
 public class IntermediateEJB implements IntermediateEJBRemote {
 
-    @EJB(lookup="ejb:/ejb/SecuredEJB!net.devk.ejb.SecuredEJBRemote")
+    @EJB(lookup = "ejb:/ejb/SecuredEJB!net.devk.common.SecuredEJBRemote")
     private SecuredEJBRemote remote;
 
     public String makeTestCalls() {

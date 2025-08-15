@@ -1,5 +1,5 @@
 
-package net.devk.ejb;
+package net.devk.interceptors;
 
 import net.devk.common.SecurityInterceptor;
 import org.jboss.ejb.client.EJBClientInterceptor;
@@ -10,7 +10,7 @@ import org.wildfly.security.auth.server.SecurityIdentity;
 
 public class ClientSecurityInterceptor implements EJBClientInterceptor {
 
-    static final ThreadLocal<String> delegateName = new ThreadLocal<>();
+    public static final ThreadLocal<String> delegateName = new ThreadLocal<>();
 
     public void handleInvocation(EJBClientInvocationContext context) throws Exception {
         String delegateUser = null;

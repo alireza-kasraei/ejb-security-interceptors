@@ -1,1 +1,1 @@
-net.devk.ejb.ClientSecurityInterceptor
+net.devk.interceptors.ClientSecurityInterceptor

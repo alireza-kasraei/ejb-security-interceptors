@@ -29,11 +29,11 @@
              invocations on the bean -->
             <jee:interceptor-binding>
                 <jee:ejb-name>IntermediateEJB</jee:ejb-name>
-                <jee:interceptor-class>net.devk.ejb.ServerSecurityInterceptor</jee:interceptor-class>
+                <jee:interceptor-class>net.devk.interceptors.ServerSecurityInterceptor</jee:interceptor-class>
             </jee:interceptor-binding>
             <jee:interceptor-binding>
                 <jee:ejb-name>SecuredEJB</jee:ejb-name>
-                <jee:interceptor-class>net.devk.ejb.ServerSecurityInterceptor</jee:interceptor-class>
+                <jee:interceptor-class>net.devk.interceptors.ServerSecurityInterceptor</jee:interceptor-class>
             </jee:interceptor-binding>
         </ci:container-interceptors>
     </jee:assembly-descriptor>

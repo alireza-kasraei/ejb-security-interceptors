@@ -4,6 +4,7 @@ package net.devk.ejb;
 import jakarta.ejb.EJBAccessException;
 import net.devk.common.IntermediateEJBRemote;
 import net.devk.common.SecuredEJBRemote;
+import net.devk.interceptors.ClientSecurityInterceptor;
 
 import static net.devk.ejb.EJBUtil.lookupIntermediateEJB;
 import static net.devk.ejb.EJBUtil.lookupSecuredEJB;
@@ -59,6 +60,7 @@ public class RemoteClient {
     }
 
     public static void main(String[] args) throws Exception {
+
         System.out.println("\n\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n");
 
         SecuredEJBRemote secured = lookupSecuredEJB();

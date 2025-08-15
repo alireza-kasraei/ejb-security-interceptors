@@ -11,6 +11,7 @@
 
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- the Maven project should use the minimum Java SE version supported -->
         <maven.compiler.release>17</maven.compiler.release>
         <!-- the version for the Server -->
@@ -19,6 +20,7 @@
         <version.bom.ee>${version.server}</version.bom.ee>
         <version.plugin.wildfly>5.1.3.Final</version.plugin.wildfly>
     </properties>
+
 
     <dependencyManagement>
         <dependencies>
@@ -36,8 +38,10 @@
 
     <modules>
         <module>common</module>
-        <module>ejb</module>
+        <module>secured-ejb</module>
         <module>remote-client</module>
+        <module>server-interceptors</module>
+        <module>client-interceptors</module>
     </modules>
 
 

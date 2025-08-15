@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.devk.ejb;
+package net.devk.interceptors;
 
 import jakarta.interceptor.AroundInvoke;
 import jakarta.interceptor.InvocationContext;
@@ -27,11 +27,7 @@ import java.security.Principal;
 import java.util.Map;
 import java.util.concurrent.Callable;
 
-/**
- * The server side security interceptor responsible for handling any security identity propagated from the client.
- *
- * @author <a href="mailto:darran.lofthouse@jboss.com">Darran Lofthouse</a>
- */
+
 public class ServerSecurityInterceptor {
 
 
