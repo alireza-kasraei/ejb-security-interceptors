@@ -22,24 +22,24 @@ import jakarta.ejb.EJB;
 import jakarta.ejb.Remote;
 import jakarta.ejb.Stateless;
 import net.devk.common.IntermediateEJBRemote;
-import net.devk.common.SecuredEJBRemote;
+import net.devk.common.SecuredServiceLocal;
 
 @Stateless
 @Remote(IntermediateEJBRemote.class)
 @PermitAll
 public class IntermediateEJB implements IntermediateEJBRemote {
 
-    @EJB(lookup = "ejb:/ejb/SecuredEJB!net.devk.common.SecuredEJBRemote")
-    private SecuredEJBRemote remote;
+    @EJB
+    private SecuredServiceLocal securedService;
 
     public String makeTestCalls() {
         try {
             StringBuilder sb = new StringBuilder("* * IntermediateEJB - Begin Testing * * \n");
-            sb.append("SecuredEJBRemote.getSecurityInformation()=").append(remote.getSecurityInformation()).append("\n");
+            sb.append("SecuredEJBRemote.getSecurityInformation()=").append(securedService.getSecurityInformation()).append("\n");
 
             try {
                 sb.append("Can call roleOneMethod=");
-                remote.roleOneMethod();
+                securedService.roleOneMethod();
                 sb.append("true\n");
             } catch (Exception e) {
                 sb.append("false\n");
@@ -47,7 +47,7 @@ public class IntermediateEJB implements IntermediateEJBRemote {
 
             try {
                 sb.append("Can call roleTwoMethod=");
-                remote.roleTwoMethod();
+                securedService.roleTwoMethod();
                 sb.append("true\n");
             } catch (Exception e) {
                 sb.append("false\n");

@@ -3,7 +3,7 @@ package net.devk.ejb;
 
 import jakarta.ejb.EJBAccessException;
 import net.devk.common.IntermediateEJBRemote;
-import net.devk.common.SecuredEJBRemote;
+import net.devk.common.SecuredServiceRemote;
 import net.devk.interceptors.ClientSecurityInterceptor;
 
 import static net.devk.ejb.EJBUtil.lookupIntermediateEJB;
@@ -15,7 +15,7 @@ public class RemoteClient {
     /**
      * Perform the tests of this quick start using a thread local in the client-side interceptor to set the desired principal name.
      */
-    private static void performTestingThreadLocal(final String user, final SecuredEJBRemote secured,
+    private static void performTestingThreadLocal(final String user, final SecuredServiceRemote secured,
                                                   final IntermediateEJBRemote intermediate) {
         try {
             if (user != null) {
@@ -34,7 +34,7 @@ public class RemoteClient {
         }
     }
 
-    private static void makeCalls(final SecuredEJBRemote secured, final IntermediateEJBRemote intermediate) {
+    private static void makeCalls(final SecuredServiceRemote secured, final IntermediateEJBRemote intermediate) {
         System.out.println("* Making Direct Calls to the SecuredEJB\n");
         System.out.println(String.format("* getSecurityInformation()=%s", secured.getSecurityInformation()));
 
@@ -63,7 +63,7 @@ public class RemoteClient {
 
         System.out.println("\n\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n");
 
-        SecuredEJBRemote secured = lookupSecuredEJB();
+        SecuredServiceRemote secured = lookupSecuredEJB();
         IntermediateEJBRemote intermediate = lookupIntermediateEJB();
 
         System.out

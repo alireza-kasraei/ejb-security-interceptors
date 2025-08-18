@@ -57,11 +57,6 @@
                         <generateClient>false</generateClient>
                     </configuration>
                 </plugin>
-                <plugin>
-                    <groupId>org.wildfly.plugins</groupId>
-                    <artifactId>wildfly-maven-plugin</artifactId>
-                    <version>${version.plugin.wildfly}</version>
-                </plugin>
             </plugins>
         </pluginManagement>
     </build>
