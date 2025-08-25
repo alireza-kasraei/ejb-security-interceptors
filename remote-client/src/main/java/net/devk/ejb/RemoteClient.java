@@ -61,13 +61,11 @@ public class RemoteClient {
 
     public static void main(String[] args) throws Exception {
 
-        System.out.println("\n\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n");
-
+//        setupSslContext();
+        setupSslContextForWildFly();
         SecuredServiceRemote secured = lookupSecuredEJB();
         IntermediateEJBRemote intermediate = lookupIntermediateEJB();
 
-        System.out
-                .println("This first round of tests is using the (PicketBox) SecurityContextAssociation API to set the desired Principal.\n\n");
 
         performTestingThreadLocal(null, secured, intermediate);
         performTestingThreadLocal("AppUserOne", secured, intermediate);
@@ -80,6 +78,14 @@ public class RemoteClient {
         }
 
         System.out.println("\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n\n");
+    }
+
+
+    private static void setupSslContextForWildFly() {
+        System.setProperty("javax.net.ssl.keyStore", "A:\\workspace\\ejb-security-interceptors\\ear\\target\\server\\standalone\\configuration\\application.keystore");
+        System.setProperty("javax.net.ssl.keyStorePassword", "password");
+        System.setProperty("javax.net.ssl.trustStore", "A:\\workspace\\ejb-security-interceptors\\ear\\target\\server\\standalone\\configuration\\application.keystore");
+        System.setProperty("javax.net.ssl.trustStorePassword", "password");
     }
 
 }

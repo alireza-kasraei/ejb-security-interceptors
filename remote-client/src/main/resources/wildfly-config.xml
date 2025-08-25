@@ -5,15 +5,15 @@
         </authentication-rules>
         <authentication-configurations>
             <configuration name="ejb">
-                <sasl-mechanism-selector selector="#ALL" />
+                <sasl-mechanism-selector selector="PLAIN" />
 
                 <use-provider-sasl-factory/>
                 <set-mechanism-properties>
-                    <property key="wildfly.sasl.local-user.quiet-auth" value="true"/>
+                    <property key="wildfly.sasl.local-user.quiet-auth" value="false"/>
                 </set-mechanism-properties>
                 <set-user-name name="ConnectionUser"/>
                 <credentials>
-                    <clear-password password="ConnectionPassword1!"/>
+                    <clear-password password="90dbe097e651ce2e84d5fa9d6463ed3d"/>
                 </credentials>
                 <set-mechanism-realm name="ApplicationRealm"/>
                 <providers>

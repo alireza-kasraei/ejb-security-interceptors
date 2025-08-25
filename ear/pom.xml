@@ -25,6 +25,12 @@
             <artifactId>server-interceptors</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 
@@ -44,13 +50,13 @@
                         are in easy way to package any libraries needed in the ear, and automatically
                         have any modules (EJB-JARs and WARs) use them -->
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
-                   <!-- <modules>
-                        <ejbModule>
-                            <groupId>net.devk</groupId>
-                            <artifactId>secured-ejb</artifactId>
-                            <bundleFileName>secured-ejb.jar</bundleFileName>
-                        </ejbModule>
-                    </modules>-->
+                    <!-- <modules>
+                         <ejbModule>
+                             <groupId>net.devk</groupId>
+                             <artifactId>secured-ejb</artifactId>
+                             <bundleFileName>secured-ejb.jar</bundleFileName>
+                         </ejbModule>
+                     </modules>-->
                 </configuration>
             </plugin>
             <plugin>
@@ -144,10 +150,10 @@
                         </packaging-script>
                     </packaging-scripts>-->
                     <!--<offline>true</offline>-->
-                    <scripts>
+                    <debug>true</debug>
+<!--                    <scripts>
                         <script>configure-elytron.cli</script>
-<!--                        <script>configure-system-exception.cli</script>-->
-                    </scripts>
+                    </scripts>-->
                 </configuration>
                <!-- <executions>
                     <execution>
@@ -156,6 +162,11 @@
                         <goals>
                             <goal>provision</goal>
                         </goals>
+                        <configuration>
+                            <scripts>
+                                <script>restore-configuration.cli</script>
+                            </scripts>
+                        </configuration>
                     </execution>
                 </executions>-->
             </plugin>
